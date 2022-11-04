@@ -3,17 +3,18 @@ import React, { useRef, useEffect, useState } from "react";
 import mapboxgl from "!mapbox-gl";
 import "./App.css";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
-import locationData from "../assets/data/locationManifest.geojson";
+import { locationData } from "../assets/data/locationManifest.js";
+import { geoJson } from "leaflet";
+// import GeoJSONUpdates from "../GeoJSONUpdates/GeoJSONUpdates";
 
 const envVariables = process.env;
 
 mapboxgl.accessToken = envVariables.REACT_APP_MAPBOX_TOKEN;
 
 function App() {
-  const mapContainer = useRef(null);
-  const map = useRef(null);
-  const [lng, setLng] = useState(33.6615);
-  const [lat, setLat] = useState(-78.9379);
+  const firstLngLat = locationData.features[0].geometry.coordinates;
+  const [lng, setLng] = useState(firstLngLat[0]);
+  const [lat, setLat] = useState(firstLngLat[1]);
   const [zoom, setZoom] = useState(9);
 
   // useEffect(() => {
@@ -34,40 +35,40 @@ function App() {
   //     });
   //   });
   // });
+  // const handleMove = () => {
+  //   setLng(map.getCenter().lng.toFixed(4));
+  //   setLat(map.getCenter().lat.toFixed(4));
+  // };
 
-  const handleMove = () => {
-    setLng(map.current.getCenter().lng.toFixed(4));
-    setLat(map.current.getCenter().lat.toFixed(4));
-  };
+  // const handleZoom = () => {
+  //   console.log("fire");
+  //   setZoom(map.current.getZoom().toFixed(2));
+  // };
+  // useEffect(() => {
+  //   if (!map.current) return; // wait for map to initialize
+  //   map.on("move", () => {
+  //     setLng(map.current.getCenter().lng.toFixed(4));
+  //     setLat(map.current.getCenter().lat.toFixed(4));
+  //     setZoom(map.current.getZoom().toFixed(2));
+  //   });
+  // });
 
-  const handleZoom = () => {
-    setZoom(map.current.getZoom().toFixed(2));
-  };
-  useEffect(() => {
-    if (!map.current) return; // wait for map to initialize
-    map.current.on("move", () => {
-      setLng(map.current.getCenter().lng.toFixed(4));
-      setLat(map.current.getCenter().lat.toFixed(4));
-      setZoom(map.current.getZoom().toFixed(2));
-    });
-  });
-
+  const locations = locationData.features;
   return (
-    <MapContainer
-      center={[lng, lat]}
-      zoom={zoom}
-      scrollWheelZoom={true}
-      onZoom={handleZoom}
-    >
+    <MapContainer center={[lng, lat]} zoom={zoom} scrollWheelZoom={true}>
       <TileLayer
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
-      <Marker position={[lng, lat]}>
-        <Popup>
-          A pretty CSS3 popup. <br /> Easily customizable.
-        </Popup>
-      </Marker>
+      {locations.map((location, idx) => (
+        <Marker key={idx} position={location.geometry.coordinates}>
+          <Popup>
+            {`${location.properties.title}`}
+            <br />
+            {`${location.properties.description}`}
+          </Popup>
+        </Marker>
+      ))}
       <div className="sidebar">
         Longitude: {lng} | Latitude: {lat} | Zoom: {zoom}
       </div>
