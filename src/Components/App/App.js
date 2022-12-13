@@ -15,10 +15,6 @@ const envVariables = process.env;
 mapboxgl.accessToken = envVariables.REACT_APP_MAPBOX_TOKEN;
 
 function App() {
-  // const parsedData = JSON.parse(locData2);
-
-  // console.log(parsedData);
-
   const firstLngLat = locationData.features[0].geometry.coordinates;
   const [lng, setLng] = useState(firstLngLat[0]);
   const [lat, setLat] = useState(firstLngLat[1]);
