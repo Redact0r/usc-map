@@ -4835,21 +4835,6 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [-32.86651667, 32.86651667]
-      },
-      "properties": {
-        "Name": "Bank of Hampton",
-        "Description_full": "The Bank of Hampton, built in 1892, was the first bank organized in Hampton and an important part of the rapid growth and development of the county seat from the 1890s to the mid-1920s. It was designed by Vincent Joseph Fontaine, a French-born architect who moved to S.C. after the Civil War. This two-story building, with its raised brickwork, segmental arches, and stepped parapet, is a good example of the Italianate influence in commercial buildings of the period. (Reverse text) This building housed the Bank of Hampton on the first floor and law offices on the second floor for more than thirty years. Though the bank closed in 1926, the second floor housed law offices into the 1960s. The building was donated to the Town of Hampton in 1987, and a town museum opened here in 1989. Now home of the Hampton Museum and Visitors' Center, it was listed in the National Register of Historic Places in 2001.",
-        "Images": "https://dussstoragebucket.s3.amazonaws.com/ExploreSC/Bank_of_Hampton.jpg",
-        "Links": "http://www.scencyclopedia.org/sce/entries/hampton/",
-        "Image Attribution": "Mike Stroud",
-        "Text Attribution": "From hmdb.org"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
         "coordinates": [-80.67305, 32.4348]
       },
       "properties": {
@@ -8982,21 +8967,6 @@
         "Description_full": "In 1788, this Baptist congregation, a branch of Cashaway Church (1756) founded by Welsh Neck Church (1738), purchased land 2 miles SW of here from the Rev. John Brown. The congregation was independently constituted in 1789 and named Muddy Creek. The church, which was known as Brownsville by 1829, moved here in 1860. Marker Reverse:Completed in 1979 to resemble the 1860 church which burned in 1977, this building contains the original pine pews &amp; pulpit furniture from the 1860 building. Both the Welsh Neck &amp; Pee Dee Baptist Associations were organized in Brownsville Church in 1832 and 1876, respectively. Prior to 1832, Brownsville belonged to the Charleston Association.",
         "Images": "https://dussstoragebucket.s3.amazonaws.com/ExploreSC/Brownsville_Baptist_Church.jpg",
         "Links": "http://www.scencyclopedia.org/sce/entries/baptists/",
-        "Image Attribution": "Paul Crumlish",
-        "Text Attribution": "From hmdb.org"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [-79.65125, 4.426566667]
-      },
-      "properties": {
-        "Name": "Brownsville Church",
-        "Description_full": " In 1788, this Baptist congregation, while still a branch of Cashaway Church (1756), purchased this land from the Rev. John Brown. The branch became an independently constituted church in 1789 named Muddy Creek and by 1829 was known as Brownsville. Welsh Neck Baptist Association was organized here in 1832. The church moved 2 miles NE in 1860.",
-        "Images": "https://dussstoragebucket.s3.amazonaws.com/ExploreSC/Brownsville_Church.jpg",
-        "Links": "",
         "Image Attribution": "Paul Crumlish",
         "Text Attribution": "From hmdb.org"
       }
@@ -46520,21 +46490,6 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [-81.04366667, 3.999033333]
-      },
-      "properties": {
-        "Name": "State Dispensary Warehouse",
-        "Description_full": "",
-        "Images": "https://dussstoragebucket.s3.amazonaws.com/ExploreSC/State_Dispensary_Warehouse.jpg",
-        "Links": "",
-        "Image Attribution": "Mike Stroud",
-        "Text Attribution": "From hmdb.org"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
         "coordinates": [-80.6776, 32.2355]
       },
       "properties": {
@@ -52153,21 +52108,6 @@
         "Images": "https://dussstoragebucket.s3.amazonaws.com/ExploreSC/Thomas_Smith-_Governor_of_Carolina.jpg",
         "Links": "",
         "Image Attribution": "Stanley and Terrie Howard",
-        "Text Attribution": "From hmdb.org"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [-80.51755, 3.98705]
-      },
-      "properties": {
-        "Name": "Thomas Sumter",
-        "Description_full": "",
-        "Images": "https://dussstoragebucket.s3.amazonaws.com/ExploreSC/Thomas_Sumter.jpg",
-        "Links": "",
-        "Image Attribution": "Mike Stroud",
         "Text Attribution": "From hmdb.org"
       }
     },
