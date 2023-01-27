@@ -7,11 +7,13 @@ import {
   MarkerProps,
   Popup,
 } from "react-leaflet";
-import pointsOfInterest from "../../assets/data/locationManifest.json";
+import POIPopUp from "../POIPopUp/POIPopUp";
 import "leaflet/dist/leaflet.css";
 import "./MainMap.css";
 
-function MainMap() {
+const MainMap = (props) => {
+  const { pointsOfInterest } = props;
+
   return (
     <MapContainer
       style={{ height: "100vh", width: "100vw" }}
@@ -26,10 +28,14 @@ function MainMap() {
       {pointsOfInterest.features.map((poi, idx) => {
         const lat = poi.geometry.coordinates[1];
         const lon = poi.geometry.coordinates[0];
-        return <Marker key={idx} position={[lat, lon]}></Marker>;
+        return (
+          <Marker key={idx} position={[lat, lon]}>
+            <POIPopUp position={[lat, lon]} poi={poi}></POIPopUp>
+          </Marker>
+        );
       })}
     </MapContainer>
   );
-}
+};
 
 export default MainMap;

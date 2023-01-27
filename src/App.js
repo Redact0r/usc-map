@@ -5,6 +5,7 @@ import MainMap from "./components/MainMap/MainMap";
 // eslint-disable-next-line import/no-webpack-loader-syntax
 import mapboxgl from "!mapbox-gl";
 import "./App.css";
+import pointsOfInterest from "./assets/data/locationManifest.json";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import { locationData } from "./assets/data/locationManifest.js";
 import locData2 from "./assets/data/locationManifest.geojson";
@@ -16,7 +17,7 @@ const envVariables = process.env;
 mapboxgl.accessToken = envVariables.REACT_APP_MAPBOX_TOKEN;
 
 function App() {
-  return <MainMap></MainMap>;
+  return <MainMap pointsOfInterest={pointsOfInterest}></MainMap>;
 
   // const firstLngLat = locationData.features[0].geometry.coordinates;
   // const [lng, setLng] = useState(firstLngLat[0]);
