@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   MapContainer,
   GeoJSON,
@@ -15,25 +15,7 @@ import POIPopUp from "../POIPopUp/POIPopUp";
 import "leaflet/dist/leaflet.css";
 import "./MainMap.css";
 import Sidebar from "../Sidebar/Sidebar";
-
-const CurrentLocation = () => {
-  const [position, setPosition] = useState(null);
-
-  const map = useMapEvents({
-    click() {
-      map.locate();
-    },
-    locationfound(e) {
-      console.log(e);
-      const lat = e.latlng.lat;
-      const lng = e.latlng.lng;
-      setPosition([lat, lng]);
-      map.flyTo(e.latlng, map.getZoom());
-    },
-  });
-
-  return position;
-};
+import CurrentLocation from "../CurrentLocation/CurrentLocation";
 
 const MainMap = (props) => {
   const [centerOfMap, setCenterOfMap] = useState([33.66155, -78.9379]);
