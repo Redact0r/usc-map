@@ -1,0 +1,35 @@
+.currentLocationCenterButton {
+  position: fixed;
+  z-index: 999;
+  bottom: 0;
+  left: 50vw;
+  margin-bottom: 15px;
+  padding: 0.05em 0.025em;
+  width: 3vw;
+  height: 3vw;
+  border-radius: 25px;
+  background: rgba(158, 157, 157, 0.5);
+  border: none;
+}
+
+.currentLocationCenterButton:hover {
+  cursor: pointer;
+}
+
+.currentLocationCenterButton:active {
+  box-shadow: 1px 1px 1px #888888;
+  opacity: 1;
+}
+
+.currentLocationCenterButton:disabled {
+  display: none;
+}
+
+.currentLocationCenterButtonIcon {
+  width: 3vw;
+  height: 3vw;
+  opacity: 0.8;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}

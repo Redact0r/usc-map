@@ -33,7 +33,7 @@ const MainMap = (props) => {
     <div>
       <MapContainer
         style={{ height: "100vh", width: "100vw" }}
-        zoom={12}
+        zoom={15}
         center={centerOfMap}
       >
         <TileLayer

@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useMap, useMapEvents, CircleMarker, Popup } from "react-leaflet";
+import CurrentLocationCenterButton from "../CurrentLocationCenterButton/CurrentLocationCenterButton";
 
 const CurrentLocation = () => {
   const [position, setPosition] = useState(null);
@@ -15,11 +16,16 @@ const CurrentLocation = () => {
   }, [map]);
 
   return position === null ? null : (
-    <CircleMarker center={position}>
-      <Popup>
-        <p>You are here</p>
-      </Popup>
-    </CircleMarker>
+    <div>
+      <CircleMarker center={position}>
+        <Popup>
+          <p>You are here</p>
+        </Popup>
+      </CircleMarker>
+      <CurrentLocationCenterButton
+        position={position}
+      ></CurrentLocationCenterButton>
+    </div>
   );
 };
 
