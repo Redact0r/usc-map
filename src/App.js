@@ -10,15 +10,24 @@ import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import { locationData } from "./assets/data/locationManifest.js";
 import locData2 from "./assets/data/locationManifest.geojson";
 import { GeoJSON } from "leaflet";
-// import GeoJSONUpdates from "../GeoJSONUpdates/GeoJSONUpdates";
+import UserContextProvider from "./contexts/UserContext/UserContext";
 
 const envVariables = process.env;
+const testMode = envVariables.REACT_APP_TEST_MODE;
+
+console.log(envVariables);
 
 mapboxgl.accessToken = envVariables.REACT_APP_MAPBOX_TOKEN;
 
 function App() {
   return (
-    <MainMap pointsOfInterest={pointsOfInterest} mapboxgl={mapboxgl}></MainMap>
+    <UserContextProvider>
+      <MainMap
+        pointsOfInterest={pointsOfInterest}
+        mapboxgl={mapboxgl}
+        testMode={testMode}
+      ></MainMap>
+    </UserContextProvider>
   );
 }
 

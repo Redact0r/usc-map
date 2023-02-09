@@ -23,6 +23,8 @@ const MainMap = (props) => {
 
   const MapBox = props.mapboxgl;
 
+  const testMode = props.testMode;
+
   const filterByDistance = (distance) => {
     return MapBox.distance();
   };
@@ -40,7 +42,7 @@ const MainMap = (props) => {
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
-        <CurrentLocation />
+        <CurrentLocation testMode={{ testMode }} />
         <ScaleControl />
         <LayersControl>
           <LayersControl.Overlay name="Marker Overlay">

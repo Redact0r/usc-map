@@ -1,19 +1,26 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { useMap, useMapEvents, CircleMarker, Popup } from "react-leaflet";
 import CurrentLocationCenterButton from "../CurrentLocationCenterButton/CurrentLocationCenterButton";
+import { UserContext } from "../../contexts/UserContext/UserContext";
 
-const CurrentLocation = () => {
-  const [position, setPosition] = useState(null);
-
+const CurrentLocation = (props) => {
+  const { position, handleNewPosition } = useContext(UserContext);
   const map = useMap();
+  const testMode = props.testMode;
 
   useEffect(() => {
-    map.locate().on("locationfound", (e) => {
-      const pos = [e.latlng.lat, e.latlng.lng];
-      setPosition(pos);
+    if (testMode) {
+      const pos = [33.66578333, -78.94325];
+      handleNewPosition(pos);
       map.flyTo(pos, map.getZoom());
-    });
-  }, [map]);
+    } else {
+      map.locate().on("locationfound", (e) => {
+        const pos = [e.latlng.lat, e.latlng.lng];
+        handleNewPosition(pos);
+        map.flyTo(pos, map.getZoom());
+      });
+    }
+  }, [map, testMode, handleNewPosition]);
 
   return position === null ? null : (
     <div>

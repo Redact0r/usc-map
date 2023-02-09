@@ -1,14 +1,16 @@
 .currentLocationCenterButton {
   position: fixed;
   z-index: 999;
-  bottom: 0;
+  bottom: 2vh;
   left: 50vw;
   margin-bottom: 15px;
-  padding: 0.05em 0.025em;
-  width: 3vw;
-  height: 3vw;
-  border-radius: 25px;
-  background: rgba(158, 157, 157, 0.5);
+  width: 9vw;
+  height: 5vh;
+  border-radius: 50px;
+  background: rgba(158, 157, 157, 0.8)
+    url("../../assets/currentlocationmarker.png");
+  background-size: 12vw;
+  background-position: center;
   border: none;
 }
 
@@ -25,11 +27,12 @@
   display: none;
 }
 
-.currentLocationCenterButtonIcon {
-  width: 3vw;
-  height: 3vw;
-  opacity: 0.8;
-  text-align: center;
-  margin-left: auto;
-  margin-right: auto;
+@media all and (min-width: 850px) {
+  .currentLocationCenterButton {
+    width: 50px;
+    height: 50px;
+    background-size: 65px;
+    background-repeat: no-repeat;
+    opacity: 0.8;
+  }
 }
