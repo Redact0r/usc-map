@@ -4,9 +4,10 @@ import CurrentLocationCenterButton from "../CurrentLocationCenterButton/CurrentL
 import { UserContext } from "../../contexts/UserContext/UserContext";
 
 const CurrentLocation = (props) => {
-  const { position, handleNewPosition } = useContext(UserContext);
+  // const testMode = process.env.REACT_APP_TEST_MODE;
+
+  const { position, handleNewPosition, testMode } = useContext(UserContext);
   const map = useMap();
-  const testMode = props.testMode;
 
   useEffect(() => {
     if (testMode) {
@@ -20,6 +21,7 @@ const CurrentLocation = (props) => {
         map.flyTo(pos, map.getZoom());
       });
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [map, testMode]);
 
   return position === null ? null : (
