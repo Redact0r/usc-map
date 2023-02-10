@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import {
   MapContainer,
   GeoJSON,
@@ -10,6 +10,7 @@ import {
   LayersControl,
   FeatureGroup,
   useMapEvents,
+  useMap,
 } from "react-leaflet";
 import POIPopUp from "../POIPopUp/POIPopUp";
 import "leaflet/dist/leaflet.css";
@@ -17,15 +18,12 @@ import "./MainMap.css";
 import Sidebar from "../Sidebar/Sidebar";
 import CurrentLocation from "../CurrentLocation/CurrentLocation";
 
+import { UserContext } from "../../contexts/UserContext/UserContext";
+
 const MainMap = (props) => {
+  const { position } = useContext(UserContext);
   const [centerOfMap, setCenterOfMap] = useState([33.66155, -78.9379]);
   const [distanceRadiusFilter, setDistanceRadiusFilter] = useState(0);
-
-  const MapBox = props.mapboxgl;
-
-  const filterByDistance = (distance) => {
-    return MapBox.distance();
-  };
 
   const { pointsOfInterest } = props;
 

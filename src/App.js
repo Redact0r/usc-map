@@ -19,10 +19,7 @@ mapboxgl.accessToken = envVariables.REACT_APP_MAPBOX_TOKEN;
 function App() {
   return (
     <UserContextProvider>
-      <MainMap
-        pointsOfInterest={pointsOfInterest}
-        mapboxgl={mapboxgl}
-      ></MainMap>
+      <MainMap pointsOfInterest={pointsOfInterest}></MainMap>
     </UserContextProvider>
   );
 }
