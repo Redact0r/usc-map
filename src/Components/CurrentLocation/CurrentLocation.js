@@ -20,7 +20,7 @@ const CurrentLocation = (props) => {
         map.flyTo(pos, map.getZoom());
       });
     }
-  }, [map, testMode, handleNewPosition]);
+  }, [map, testMode]);
 
   return position === null ? null : (
     <div>

@@ -42,7 +42,7 @@ const MainMap = (props) => {
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
-        <CurrentLocation testMode={{ testMode }} />
+        <CurrentLocation testMode={testMode} />
         <ScaleControl />
         <LayersControl>
           <LayersControl.Overlay name="Marker Overlay">
