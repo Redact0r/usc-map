@@ -1,5 +1,5 @@
-import { useState, useEffect, useContext } from "react";
-import { useMap, useMapEvents, CircleMarker, Popup } from "react-leaflet";
+import { useEffect, useContext } from "react";
+import { useMap, CircleMarker, Popup } from "react-leaflet";
 import CurrentLocationCenterButton from "../CurrentLocationCenterButton/CurrentLocationCenterButton";
 import { UserContext } from "../../contexts/UserContext/UserContext";
 

@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useMemo } from "react";
+import React, { useContext, useMemo } from "react";
 import { LayersControl, FeatureGroup, Marker, useMap } from "react-leaflet";
 import POIPopUp from "../POIPopUp/POIPopUp";
 import { UserContext } from "../../contexts/UserContext/UserContext";
@@ -7,7 +7,6 @@ import { getMilesFromMeters } from "../../helpers/Util";
 
 const LayersControlGroup = (props) => {
   const {
-    testMode,
     position,
     layer1POIs,
     handleLayer1Change,
@@ -84,6 +83,15 @@ const LayersControlGroup = (props) => {
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [position]);
+
+  map.on("overlayadd", (e) => {
+    const selectedLayer = e.name;
+    const controlLayer = e;
+
+    console.log(controlLayer);
+
+    console.log(selectedLayer + " selected");
+  });
 
   return (
     <LayersControl>
