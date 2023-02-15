@@ -3,16 +3,17 @@ import {
   MapContainer,
   GeoJSON,
   TileLayer,
-  Marker,
+  // Marker,
   MarkerProps,
   Popup,
   ScaleControl,
-  LayersControl,
-  FeatureGroup,
+  // LayersControl,
+  // FeatureGroup,
   useMapEvents,
   useMap,
 } from "react-leaflet";
-import POIPopUp from "../POIPopUp/POIPopUp";
+import LayersControlGroup from "../LayersControlGroup/LayersControlGroup";
+// import POIPopUp from "../POIPopUp/POIPopUp";
 import "leaflet/dist/leaflet.css";
 import "./MainMap.css";
 import Sidebar from "../Sidebar/Sidebar";
@@ -39,31 +40,8 @@ const MainMap = (props) => {
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
         <CurrentLocation />
+        <LayersControlGroup pointsOfInterest={pointsOfInterest} />
         <ScaleControl />
-        <LayersControl>
-          <LayersControl.Overlay name="Marker Overlay">
-            <FeatureGroup>
-              {pointsOfInterest.features.map((poi, idx) => {
-                const lat = poi.geometry.coordinates[1];
-                const lon = poi.geometry.coordinates[0];
-                return (
-                  <Marker key={idx} position={[lat, lon]}>
-                    <POIPopUp position={[lat, lon]} poi={poi}></POIPopUp>
-                  </Marker>
-                );
-              })}
-            </FeatureGroup>
-          </LayersControl.Overlay>
-          <LayersControl.Overlay name="Sites within 1 mi">
-            <FeatureGroup></FeatureGroup>
-          </LayersControl.Overlay>
-          <LayersControl.Overlay name="Sites within 5 mi">
-            <FeatureGroup></FeatureGroup>
-          </LayersControl.Overlay>
-          <LayersControl.Overlay name="Sites within 10 mi">
-            <FeatureGroup></FeatureGroup>
-          </LayersControl.Overlay>
-        </LayersControl>
         <Sidebar />
       </MapContainer>
     </div>
