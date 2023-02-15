@@ -9,7 +9,9 @@ const CurrentLocation = (props) => {
 
   useEffect(() => {
     if (testMode) {
-      const pos = [33.66578333, -78.94325];
+      //toggle 2 positions here to test map functionality of re-rendering distance layers in test mode
+      // const pos = [33.66578333, -78.94325];
+      const pos = [33.68083333, -79.3675];
       handleNewPosition(pos);
       map.flyTo(pos, map.getZoom());
     } else {

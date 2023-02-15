@@ -23,8 +23,7 @@ import { UserContext } from "../../contexts/UserContext/UserContext";
 
 const MainMap = (props) => {
   const { position } = useContext(UserContext);
-  const [centerOfMap, setCenterOfMap] = useState([33.66155, -78.9379]);
-  const [distanceRadiusFilter, setDistanceRadiusFilter] = useState(0);
+  const [centerOfMap, setCenterOfMap] = useState(position);
 
   const { pointsOfInterest } = props;
 
@@ -33,7 +32,7 @@ const MainMap = (props) => {
       <MapContainer
         style={{ height: "100vh", width: "100vw" }}
         zoom={15}
-        center={centerOfMap}
+        center={centerOfMap || [33.66155, -78.9379]}
       >
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
