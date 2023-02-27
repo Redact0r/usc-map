@@ -1,10 +1,10 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { MapContainer, TileLayer, ScaleControl } from "react-leaflet";
 import LayersControlGroup from "../LayersControlGroup/LayersControlGroup";
 // import POIPopUp from "../POIPopUp/POIPopUp";
 import "leaflet/dist/leaflet.css";
 import "./MainMap.css";
-import Sidebar from "../Sidebar/Sidebar";
+import SidebarContainer from "../SidebarContainer/SidebarContainer";
 import CurrentLocation from "../CurrentLocation/CurrentLocation";
 
 import { UserContext } from "../../contexts/UserContext/UserContext";
@@ -16,7 +16,9 @@ const MainMap = (props) => {
 
   return (
     <div>
+      <SidebarContainer />
       <MapContainer
+        className="sidebar-map"
         style={{ height: "100vh", width: "100vw" }}
         zoom={15}
         center={position || [33.66155, -78.9379]}
@@ -28,7 +30,6 @@ const MainMap = (props) => {
         <CurrentLocation />
         <LayersControlGroup pointsOfInterest={pointsOfInterest} />
         <ScaleControl />
-        <Sidebar />
       </MapContainer>
     </div>
   );
