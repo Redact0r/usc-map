@@ -4,7 +4,7 @@ import LayersControlGroup from "../LayersControlGroup/LayersControlGroup";
 // import POIPopUp from "../POIPopUp/POIPopUp";
 import "leaflet/dist/leaflet.css";
 import "./MainMap.css";
-import SidebarContainer from "../SidebarContainer/SidebarContainer";
+import Sidebar from "../Sidebar/Sidebar";
 import CurrentLocation from "../CurrentLocation/CurrentLocation";
 
 import { UserContext } from "../../contexts/UserContext/UserContext";
@@ -16,9 +16,8 @@ const MainMap = (props) => {
 
   return (
     <div>
-      <SidebarContainer />
+      <Sidebar />
       <MapContainer
-        className="sidebar-map"
         style={{ height: "100vh", width: "100vw" }}
         zoom={15}
         center={position || [33.66155, -78.9379]}
