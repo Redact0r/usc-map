@@ -1,7 +1,6 @@
 import React, { useContext, useState } from "react";
-import { MapContainer, TileLayer, ScaleControl } from "react-leaflet";
+import { MapContainer, TileLayer, ZoomControl } from "react-leaflet";
 import LayersControlGroup from "../LayersControlGroup/LayersControlGroup";
-// import POIPopUp from "../POIPopUp/POIPopUp";
 import "leaflet/dist/leaflet.css";
 import "./MainMap.css";
 import Sidebar from "../Sidebar/Sidebar";
@@ -20,6 +19,7 @@ const MainMap = (props) => {
       <MapContainer
         style={{ height: "100vh", width: "100vw" }}
         zoom={15}
+        zoomControl={false}
         center={position || [33.66155, -78.9379]}
       >
         <TileLayer
@@ -28,7 +28,7 @@ const MainMap = (props) => {
         />
         <CurrentLocation />
         <LayersControlGroup pointsOfInterest={pointsOfInterest} />
-        <ScaleControl />
+        <ZoomControl position="bottomright" />
       </MapContainer>
     </div>
   );
