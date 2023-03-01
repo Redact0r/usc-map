@@ -1,4 +1,4 @@
-import React, { useContext, useMemo } from "react";
+import React, { useContext, useEffect } from "react";
 import { LayersControl, FeatureGroup, Marker, useMap } from "react-leaflet";
 import POIPopUp from "../POIPopUp/POIPopUp";
 import { UserContext } from "../../contexts/UserContext/UserContext";
@@ -33,7 +33,7 @@ const LayersControlGroup = (props) => {
     return distanceInMiles;
   };
 
-  useMemo(() => {
+  useEffect(() => {
     if (position) {
       const _layer1POIs = pointsOfInterest.features.filter((poi) => {
         const lat = poi.geometry.coordinates[1];
