@@ -15,7 +15,6 @@ const MainMap = (props) => {
 
   return (
     <div>
-      <Sidebar />
       <MapContainer
         style={{ height: "100vh", width: "100vw" }}
         zoom={15}
@@ -26,6 +25,7 @@ const MainMap = (props) => {
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
+        <Sidebar pointsOfInterest={pointsOfInterest} />
         <CurrentLocation />
         <LayersControlGroup pointsOfInterest={pointsOfInterest} />
         <ZoomControl position="bottomright" />

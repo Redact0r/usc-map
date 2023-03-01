@@ -87,10 +87,6 @@ const LayersControlGroup = (props) => {
   map.on("overlayadd", (e) => {
     const selectedLayer = e.name;
     const controlLayer = e;
-
-    console.log(controlLayer);
-
-    console.log(selectedLayer + " selected");
   });
 
   return (

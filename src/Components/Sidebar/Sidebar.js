@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import SearchFeature from "../SearchFeature/SearchFeature";
-import { FaInfoCircle, FaCog, FaSearchLocation, FaBars } from "react-icons/fa";
+import { FaInfoCircle, FaSearchLocation, FaBars } from "react-icons/fa";
 
 import "./Sidebar.css";
 
-const Sidebar = (props) => {
+const Sidebar = ({ pointsOfInterest }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isDisplayOpen, setIsDisplayOpen] = useState(false);
   const [selected, setSelected] = useState("Search");
@@ -26,11 +26,13 @@ const Sidebar = (props) => {
     {
       name: "Search",
       icon: <FaSearchLocation />,
-      page: <SearchFeature />,
-    },
-    {
-      name: "Settings",
-      icon: <FaCog />,
+      page: (
+        <SearchFeature
+          pointsOfInterest={pointsOfInterest}
+          isOpen={isOpen}
+          isDisplayOpen={isDisplayOpen}
+        />
+      ),
     },
     {
       name: "About Explore SC",
