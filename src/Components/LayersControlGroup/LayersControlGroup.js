@@ -101,10 +101,6 @@ const LayersControlGroup = (props) => {
     const newLayerTitle = e.name.trim();
     const oldStateLayerArray = selectedLayerArray;
 
-    const newLayer = oldStateLayerArray.find(
-      (layer) => layer.name === newLayerTitle
-    );
-
     let newStateArray = [];
 
     for (let i = 0; i < oldStateLayerArray.length; i++) {
