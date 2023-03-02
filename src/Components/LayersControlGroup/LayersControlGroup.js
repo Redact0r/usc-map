@@ -93,10 +93,6 @@ const LayersControlGroup = (props) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [position]);
 
-  const checkSelectedLayer = (e) => {
-    console.log(e);
-  };
-
   map.on("overlayadd", (e) => {
     const newLayerTitle = e.name.trim();
     const oldStateLayerArray = selectedLayerArray;
