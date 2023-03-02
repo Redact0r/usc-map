@@ -87,6 +87,8 @@ const LayersControlGroup = (props) => {
   map.on("overlayadd", (e) => {
     const selectedLayer = e.name;
     const controlLayer = e;
+
+    console.log(e);
   });
 
   return (
@@ -149,7 +151,7 @@ const LayersControlGroup = (props) => {
             : null}
         </FeatureGroup>
       </LayersControl.Overlay>
-      <LayersControl.Overlay name="Sites within 25 mi">
+      <LayersControl.Overlay name="Sites within 25 mi" checked={true}>
         <FeatureGroup>
           {layer1POIs.length > 0
             ? layer4POIs.map((poi, idx) => {
