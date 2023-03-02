@@ -41,7 +41,11 @@ const Sidebar = ({ pointsOfInterest }) => {
   ];
 
   return (
-    <div className="sidebar-container">
+    <div
+      className={`sidebar-container ${
+        !isDisplayOpen || !isOpen ? "hidden" : ""
+      }`}
+    >
       <div className="sidebar">
         <div className="top_section">
           <div className="bars">
@@ -67,7 +71,9 @@ const Sidebar = ({ pointsOfInterest }) => {
         })}
       </div>
       <div
-        className="sidebar-window"
+        className={`sidebar-window ${
+          !isDisplayOpen || !isOpen ? "hidden" : ""
+        }`}
         style={
           ({ visibility: isDisplayOpen && isOpen ? "visible" : "hidden" },
           { opacity: isDisplayOpen && isOpen ? 1 : 0 })

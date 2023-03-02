@@ -87,23 +87,7 @@ const LayersControlGroup = (props) => {
   map.on("overlayadd", (e) => {
     const selectedLayer = e.name;
     const controlLayer = e;
-
-    const markerLayers = document.querySelectorAll(".leaflet-marker-pane");
-
-    console.log(markerLayers);
-
-    markerLayers.forEach((layer) => {
-      layer.addEventListener("click", (evt) => {
-        evt.preventDefault();
-        console.log("layer clicked");
-        console.log(layer);
-      });
-    });
   });
-
-  const handleTestEvent = (e) => {
-    console.log(e);
-  };
 
   return (
     <LayersControl>

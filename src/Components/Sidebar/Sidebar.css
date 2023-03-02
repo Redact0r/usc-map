@@ -67,6 +67,11 @@
   transition: opacity 0.5s linear;
 }
 
+.sidebar-window.hidden {
+  width: 0px;
+  height: 0px;
+}
+
 @media screen and (min-width: 600px) {
   .sidebar-window {
     height: 40vh;
