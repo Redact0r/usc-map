@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { LayersControl, FeatureGroup, Marker, useMap } from "react-leaflet";
 import POIPopUp from "../POIPopUp/POIPopUp";
 import { UserContext } from "../../contexts/UserContext/UserContext";
@@ -19,6 +19,15 @@ const LayersControlGroup = (props) => {
     layer5POIs,
     handleLayer5Change,
   } = useContext(UserContext);
+
+  const [selectedLayerArray, setSelectedLayerArray] = useState([
+    { name: "All Sites", checked: false },
+    { name: "Sites within 1 mi", checked: false },
+    { name: "Sites within 5 mi", checked: false },
+    { name: "Sites within 10 mi", checked: false },
+    { name: "Sites within 25 mi", checked: true },
+    { name: "Sites within 50 mi", checked: false },
+  ]);
 
   const { pointsOfInterest } = props;
   const map = useMap();
@@ -84,16 +93,39 @@ const LayersControlGroup = (props) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [position]);
 
-  map.on("overlayadd", (e) => {
-    const selectedLayer = e.name;
-    const controlLayer = e;
-
+  const checkSelectedLayer = (e) => {
     console.log(e);
+  };
+
+  map.on("overlayadd", (e) => {
+    const newLayerTitle = e.name.trim();
+    const oldStateLayerArray = selectedLayerArray;
+
+    const newLayer = oldStateLayerArray.find(
+      (layer) => layer.name === newLayerTitle
+    );
+
+    let newStateArray = [];
+
+    for (let i = 0; i < oldStateLayerArray.length; i++) {
+      let layer = oldStateLayerArray[i];
+
+      const checked = layer.name === newLayerTitle;
+
+      const newObject = { name: layer.name, checked: checked };
+
+      newStateArray.push(newObject);
+    }
+
+    return setSelectedLayerArray(newStateArray);
   });
 
   return (
-    <LayersControl>
-      <LayersControl.Overlay name="All Sites">
+    <LayersControl groupCheckboxes={true}>
+      <LayersControl.Overlay
+        name="All Sites"
+        checked={selectedLayerArray[0].checked}
+      >
         <FeatureGroup>
           {pointsOfInterest.features.map((poi, idx) => {
             const lat = poi.geometry.coordinates[1];
@@ -106,7 +138,10 @@ const LayersControlGroup = (props) => {
           })}
         </FeatureGroup>
       </LayersControl.Overlay>
-      <LayersControl.Overlay name="Sites within 1 mi">
+      <LayersControl.Overlay
+        name="Sites within 1 mi"
+        checked={selectedLayerArray[1].checked}
+      >
         <FeatureGroup>
           {layer1POIs.length > 0
             ? layer1POIs.map((poi, idx) => {
@@ -121,7 +156,10 @@ const LayersControlGroup = (props) => {
             : null}
         </FeatureGroup>
       </LayersControl.Overlay>
-      <LayersControl.Overlay name="Sites within 5 mi">
+      <LayersControl.Overlay
+        name="Sites within 5 mi"
+        checked={selectedLayerArray[2].checked}
+      >
         <FeatureGroup>
           {layer2POIs.length > 0
             ? layer1POIs.map((poi, idx) => {
@@ -136,7 +174,10 @@ const LayersControlGroup = (props) => {
             : null}
         </FeatureGroup>
       </LayersControl.Overlay>
-      <LayersControl.Overlay name="Sites within 10 mi">
+      <LayersControl.Overlay
+        name="Sites within 10 mi"
+        checked={selectedLayerArray[3].checked}
+      >
         <FeatureGroup>
           {layer1POIs.length > 0
             ? layer3POIs.map((poi, idx) => {
@@ -151,7 +192,10 @@ const LayersControlGroup = (props) => {
             : null}
         </FeatureGroup>
       </LayersControl.Overlay>
-      <LayersControl.Overlay name="Sites within 25 mi" checked={true}>
+      <LayersControl.Overlay
+        name="Sites within 25 mi"
+        checked={selectedLayerArray[4].checked}
+      >
         <FeatureGroup>
           {layer1POIs.length > 0
             ? layer4POIs.map((poi, idx) => {
@@ -166,7 +210,10 @@ const LayersControlGroup = (props) => {
             : null}
         </FeatureGroup>
       </LayersControl.Overlay>
-      <LayersControl.Overlay name="Sites within 50 mi">
+      <LayersControl.Overlay
+        name="Sites within 50 mi"
+        checked={selectedLayerArray[5].checked}
+      >
         <FeatureGroup>
           {layer1POIs.length > 0
             ? layer5POIs.map((poi, idx) => {
