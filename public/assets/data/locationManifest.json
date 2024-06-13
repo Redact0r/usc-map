@@ -1,0 +1,50 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-78.9379, 33.66155]
+      },
+      "properties": {
+        "Name": "1943",
+        "Description_full": "Hospital care was one of the integral missions of the newly created U. S. Army Air Base on land donated by the City of Myrtle Beach. As the base was built at the outset of World War II, the hospital was located about one mile east of here in an area referred to colloquially as Splinter City (hastily built of all wood construction). The hospital provided the basic medical needs for the rapidly growing base military population. The population swelled temporarily from time to time as fighter aircraft units came in for short, intense training periods to hone the bombing and gunnery skills of the young pilots. As part of their medical responsibilities, the hospital also gave medical care to the German prisoners of war who were housed nearby. The hospital supported the medical needs of the many bomber and transport aircrews that used the base for rest and refueling on stopover before taking their aircraft on the long overwater flights to the European Theater of war. The U.S. Army Air Base closed after World War II and most of the Splinter City buildings, including the hospital, were subsequently demolished. ( adjacent marker ) Flight Surgeon Clinic The Flight Surgeons supporting the three Tactical Fighter Wings at Myrtle Beach Air Force Base maintained offices in building 114 at this location. In addition to their normal medical specialties, Flight Surgeons also specialized in Aerospace Medicine. They carried the aeronautical rating of Flight Surgeon and were awarded wings denoting their flight status as Flight Surgeons. The Flight Surgeon played an important role in helping to maintain the health, well-being and combat readiness of flying personnel. Flight Surgeons flew frequently with their fighter units and were particularly attuned to the flying stresses of \"G\" forces and the potential for altitude sickness. ( nearby marker ) Hospital This is the site of the 354th Med Group Hospital, building 114, a 25 bed, two-story facility built in 1958 on what was Farrow Boulevard and Alder Street. The hospital included a well-equipped emergency room, a combined medical/surgical and pediatric ward, a surgical suite with two operating rooms and a cardiac unit. It provided medical care for military members, their families and others who were eligible. The hospital staff was composed of highly qualified professionals. General medicine, internal medicine, general surgery pediatrics, flight medicine, gynecology, optometry and mental health services were provided by the hospital staff. The hospital building is now part of Horry- Georgetown Technical College and serves as a major medical training facility, renamed the Dr. Robert E. Speir, Jr., Healthcare Education Center. ( adjacent marker ) Nurses Quarters The Nurses Quarters, building 115, was constructed in 1959 on Howard Boulevard. The Nurses Quarters provided housing for nurses assigned to duty at the Base hospital.",
+        "Images": "https://dussstoragebucket.s3.amazonaws.com/ExploreSC/1943.jpg",
+        "Links": "http://www.scencyclopedia.org/sce/entries/myrtle-beach/, http://www.scencyclopedia.org/sce/entries/myrtle-beach-air-force-base/, http://www.scencyclopedia.org/sce/entries/world-war-ii/",
+        "Image Attribution": "Michael Herrick",
+        "Text Attribution": "From hmdb.org"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-82.66333333, 34.30583333]
+      },
+      "properties": {
+        "Name": "1965",
+        "Description_full": "This building and lot donated to the Town of Iva and the Iva District 10 Fire Department by W. Parker Bowie and his wife Marie T. Bowie in honor of his father Luther E. Bowie and his mother Lucia P. Bowie. Dedicated to the citizens of this area for the protection of their lives and property. The assistance of George V. Harris, Jr., as Construction Superintendent is acknowledged.",
+        "Images": "https://dussstoragebucket.s3.amazonaws.com/ExploreSC/1965.jpg",
+        "Links": "",
+        "Image Attribution": "Brian Scott",
+        "Text Attribution": "From hmdb.org"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-81.80416667, 35.13145]
+      },
+      "properties": {
+        "Name": "\"�A Most Dreary Appearance\"",
+        "Description_full": "In 1849, journalist-historian Benson Lossing traveled to the Scruggs farm seeking information about the Cowpens battle. Using the house as a point of reference, he located fields \"within a quarter mile of the Scruggs\" where the battle raged more than half a century before. Journalist Lossing noted that the battlefield presented \"a most dreary appearance.\" Ax and plow had turned an open hardwood forest into stumps, pine thickets and cornfields.",
+        "Images": "https://dussstoragebucket.s3.amazonaws.com/ExploreSC/\"…A_Most_Dreary_Appearance\".jpg",
+        "Links": "http://www.scencyclopedia.org/sce/entries/cowpens-battle-of/, http://www.scencyclopedia.org/sce/entries/gaffney/, http://www.scencyclopedia.org/sce/entries/revolutionary-war/",
+        "Image Attribution": "Brian Scott",
+        "Text Attribution": "From hmdb.org"
+      }
+    }
+  ]
+}
