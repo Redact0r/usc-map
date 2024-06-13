@@ -6,7 +6,7 @@ import UserContextProvider from "../../contexts/UserContext/UserContext";
 
 const SearchFeature = ({ pointsOfInterest, isOpen, isDisplayOpen }) => {
   const [filteredPOIs, setFilteredPOIs] = useState(pointsOfInterest.features);
-  const allPOIs = pointsOfInterest.features;
+  const allPOIs = pointsOfInterest.features ?? [];
 
   const map = useMap();
 

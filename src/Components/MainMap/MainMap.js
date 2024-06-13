@@ -9,6 +9,8 @@ import CurrentLocation from "../CurrentLocation/CurrentLocation";
 import { UserContext } from "../../contexts/UserContext/UserContext";
 
 const MainMap = (props) => {
+  debugger;
+  console.log(props);
   const { position } = useContext(UserContext);
 
   const { pointsOfInterest } = props;

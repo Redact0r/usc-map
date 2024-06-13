@@ -1,7 +1,7 @@
 /* eslint-disable array-callback-return */
 /* eslint-disable no-unused-expressions */
 import React, { useState, useEffect } from "react";
-import * as ReactDOM from "react-dom/client";
+// import * as ReactDOM from "react-dom/client";
 import MainMap from "./Components/MainMap/MainMap";
 // eslint-disable-next-line import/no-webpack-loader-syntax
 import mapboxgl from "!mapbox-gl";
@@ -38,27 +38,29 @@ mapboxgl.accessToken = envVariables.REACT_APP_MAPBOX_TOKEN;
 // console.log(pois);
 
 function App() {
-  const [pois, setPois] = useState();
+  const [pointsOfInterest, setPointsofInterest] = useState({ features: [] });
   const getData = async () => {
-    let result = fetch(
+    const res = await fetch(
       `${process.env.PUBLIC_URL}/assets/data/locationManifest.json`
-    )
-      .then((res) => (res.ok ? res.json() : Error("Map Data not loaded")))
-      .then((data) => {
-        console.log(data);
-        return data;
-      })
-      .catch((err) => console.error(err));
-    setPois(result);
+    );
+    if (!res.ok) {
+      throw new Error("Map data failed to load");
+    }
+
+    return res.json();
   };
+  console.log("rendered map", pointsOfInterest);
   useEffect(() => {
     // Fetching Data on Initial Load
-    getData();
+    getData().then((data) => {
+      console.log("Fetched map", data);
+      return setPointsofInterest(data);
+    });
   }, []);
 
   return (
     <UserContextProvider>
-      <MainMap pointsOfInterest={pois}></MainMap>
+      <MainMap pointsOfInterest={pointsOfInterest}></MainMap>
     </UserContextProvider>
   );
 }
