@@ -47,7 +47,8 @@ function App() {
       .then((data) => {
         console.log(data);
         return data;
-      });
+      })
+      .catch((err) => console.error(err));
     setPois(result);
   };
   useEffect(() => {
