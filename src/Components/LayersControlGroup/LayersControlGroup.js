@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
+import L from "leaflet";
 import { LayersControl, FeatureGroup, Marker, useMap } from "react-leaflet";
 import POIPopUp from "../POIPopUp/POIPopUp";
 import { UserContext } from "../../contexts/UserContext/UserContext";
@@ -19,6 +20,11 @@ const LayersControlGroup = (props) => {
     layer5POIs,
     handleLayer5Change,
   } = useContext(UserContext);
+
+  const icon = L.icon({
+    iconUrl: `${process.env.PUBLIC_URL}/assets/leaflet/cssmarker-icon.png`,
+    shadowUrl: `${process.env.PUBLIC_URL}/assets/leaflet/cssmarker-shadow.png`,
+  });
 
   const [selectedLayerArray, setSelectedLayerArray] = useState([
     { name: "All Sites", checked: false },
@@ -123,7 +129,7 @@ const LayersControlGroup = (props) => {
             const lat = poi.geometry.coordinates[1];
             const lng = poi.geometry.coordinates[0];
             return (
-              <Marker key={idx} position={[lat, lng]}>
+              <Marker key={idx} position={[lat, lng]} icon={icon}>
                 <POIPopUp position={[lat, lng]} poi={poi}></POIPopUp>
               </Marker>
             );
