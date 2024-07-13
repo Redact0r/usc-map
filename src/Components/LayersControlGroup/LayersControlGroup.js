@@ -146,7 +146,7 @@ const LayersControlGroup = (props) => {
                 const lat = poi.geometry.coordinates[1];
                 const lng = poi.geometry.coordinates[0];
                 return (
-                  <Marker key={idx} position={[lat, lng]}>
+                  <Marker key={idx} position={[lat, lng]} icon={icon}>
                     <POIPopUp position={[lat, lng]} poi={poi}></POIPopUp>
                   </Marker>
                 );
@@ -164,7 +164,7 @@ const LayersControlGroup = (props) => {
                 const lat = poi.geometry.coordinates[1];
                 const lng = poi.geometry.coordinates[0];
                 return (
-                  <Marker key={idx} position={[lat, lng]}>
+                  <Marker key={idx} position={[lat, lng]} icon={icon}>
                     <POIPopUp position={[lat, lng]} poi={poi}></POIPopUp>
                   </Marker>
                 );
@@ -182,7 +182,7 @@ const LayersControlGroup = (props) => {
                 const lat = poi.geometry.coordinates[1];
                 const lng = poi.geometry.coordinates[0];
                 return (
-                  <Marker key={idx} position={[lat, lng]}>
+                  <Marker key={idx} position={[lat, lng]} icon={icon}>
                     <POIPopUp position={[lat, lng]} poi={poi}></POIPopUp>
                   </Marker>
                 );
@@ -200,7 +200,7 @@ const LayersControlGroup = (props) => {
                 const lat = poi.geometry.coordinates[1];
                 const lng = poi.geometry.coordinates[0];
                 return (
-                  <Marker key={idx} position={[lat, lng]}>
+                  <Marker key={idx} position={[lat, lng]} icon={icon}>
                     <POIPopUp position={[lat, lng]} poi={poi}></POIPopUp>
                   </Marker>
                 );
@@ -218,7 +218,7 @@ const LayersControlGroup = (props) => {
                 const lat = poi.geometry.coordinates[1];
                 const lng = poi.geometry.coordinates[0];
                 return (
-                  <Marker key={idx} position={[lat, lng]}>
+                  <Marker key={idx} position={[lat, lng]} icon={icon}>
                     <POIPopUp position={[lat, lng]} poi={poi}></POIPopUp>
                   </Marker>
                 );
