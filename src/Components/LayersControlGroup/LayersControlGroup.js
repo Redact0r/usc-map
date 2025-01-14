@@ -48,54 +48,31 @@ const LayersControlGroup = (props) => {
     return distanceInMiles;
   };
 
+  const getLayerPOIs = (radius) => {
+    const pois = pointsOfInterest.features.filter((poi) => {
+      const lat = poi.geometry.coordinates[1];
+      const lng = poi.geometry.coordinates[0];
+      const poiLatLng = [lat, lng];
+      const distanceCheck = filterByDistance(position, poiLatLng);
+
+      return distanceCheck <= radius;
+    });
+
+    return pois;
+  };
+
   useEffect(() => {
-    if (position) {
-      const _layer1POIs = pointsOfInterest.features.filter((poi) => {
-        const lat = poi.geometry.coordinates[1];
-        const lng = poi.geometry.coordinates[0];
-        const poiLatLng = [lat, lng];
-        const distanceCheck = filterByDistance(position, poiLatLng);
+    const _layer1POIs = getLayerPOIs(1);
+    const _layer2POIs = getLayerPOIs(5);
+    const _layer3POIs = getLayerPOIs(10);
+    const _layer4POIs = getLayerPOIs(25);
+    const _layer5POIs = getLayerPOIs(50);
+    handleLayer1Change(_layer1POIs);
+    handleLayer2Change(_layer2POIs);
+    handleLayer3Change(_layer3POIs);
+    handleLayer4Change(_layer4POIs);
+    handleLayer5Change(_layer5POIs);
 
-        return distanceCheck <= 1;
-      });
-      const _layer2POIs = pointsOfInterest.features.filter((poi) => {
-        const lat = poi.geometry.coordinates[1];
-        const lng = poi.geometry.coordinates[0];
-        const poiLatLng = [lat, lng];
-        const distanceCheck = filterByDistance(position, poiLatLng);
-
-        return distanceCheck <= 5;
-      });
-      const _layer3POIs = pointsOfInterest.features.filter((poi) => {
-        const lat = poi.geometry.coordinates[1];
-        const lng = poi.geometry.coordinates[0];
-        const poiLatLng = [lat, lng];
-        const distanceCheck = filterByDistance(position, poiLatLng);
-
-        return distanceCheck <= 10;
-      });
-      const _layer4POIs = pointsOfInterest.features.filter((poi) => {
-        const lat = poi.geometry.coordinates[1];
-        const lng = poi.geometry.coordinates[0];
-        const poiLatLng = [lat, lng];
-        const distanceCheck = filterByDistance(position, poiLatLng);
-
-        return distanceCheck <= 25;
-      });
-      const _layer5POIs = pointsOfInterest.features.filter((poi) => {
-        const lat = poi.geometry.coordinates[1];
-        const lng = poi.geometry.coordinates[0];
-        const poiLatLng = [lat, lng];
-        const distanceCheck = filterByDistance(position, poiLatLng);
-
-        return distanceCheck <= 50;
-      });
-      handleLayer1Change(_layer1POIs);
-      handleLayer2Change(_layer2POIs);
-      handleLayer3Change(_layer3POIs);
-      handleLayer4Change(_layer4POIs);
-      handleLayer5Change(_layer5POIs);
-    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [position]);
 
@@ -160,7 +137,7 @@ const LayersControlGroup = (props) => {
       >
         <FeatureGroup>
           {layer2POIs.length > 0
-            ? layer1POIs.map((poi, idx) => {
+            ? layer2POIs.map((poi, idx) => {
                 const lat = poi.geometry.coordinates[1];
                 const lng = poi.geometry.coordinates[0];
                 return (
@@ -177,7 +154,7 @@ const LayersControlGroup = (props) => {
         checked={selectedLayerArray[3].checked}
       >
         <FeatureGroup>
-          {layer1POIs.length > 0
+          {layer3POIs.length > 0
             ? layer3POIs.map((poi, idx) => {
                 const lat = poi.geometry.coordinates[1];
                 const lng = poi.geometry.coordinates[0];
@@ -195,7 +172,7 @@ const LayersControlGroup = (props) => {
         checked={selectedLayerArray[4].checked}
       >
         <FeatureGroup>
-          {layer1POIs.length > 0
+          {layer4POIs.length > 0
             ? layer4POIs.map((poi, idx) => {
                 const lat = poi.geometry.coordinates[1];
                 const lng = poi.geometry.coordinates[0];
@@ -213,7 +190,7 @@ const LayersControlGroup = (props) => {
         checked={selectedLayerArray[5].checked}
       >
         <FeatureGroup>
-          {layer1POIs.length > 0
+          {layer5POIs.length > 0
             ? layer5POIs.map((poi, idx) => {
                 const lat = poi.geometry.coordinates[1];
                 const lng = poi.geometry.coordinates[0];
