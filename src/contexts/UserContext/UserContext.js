@@ -34,6 +34,7 @@ const UserContextProvider = (props) => {
       value={{
         testMode,
         position,
+        setPosition,
         handleNewPosition,
         distanceRadiusFilter,
         setDistanceRadiusFilter,

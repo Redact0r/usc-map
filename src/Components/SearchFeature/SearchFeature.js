@@ -2,8 +2,6 @@ import React, { useState } from "react";
 import { useMap } from "react-leaflet";
 import "./SearchFeature.css";
 
-import UserContextProvider from "../../contexts/UserContext/UserContext";
-
 const SearchFeature = ({ pointsOfInterest, isOpen, isDisplayOpen }) => {
   const [filteredPOIs, setFilteredPOIs] = useState(pointsOfInterest.features);
   const allPOIs = pointsOfInterest.features ?? [];

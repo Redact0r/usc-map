@@ -4,7 +4,7 @@ import "./POIPopUp.css";
 
 const POIPopUp = (props) => {
   const { position, poi } = props;
-  const { Name, Description_full, Links, Images } = poi.properties;
+  const { Name, Description_full, Images } = poi.properties;
   const imgAttr = poi.properties["Image Attribution"];
   const txtAttr = poi.properties["Text Attribution"];
 

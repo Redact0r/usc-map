@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import { MapContainer, TileLayer, ZoomControl } from "react-leaflet";
 import LayersControlGroup from "../LayersControlGroup/LayersControlGroup";
 import "leaflet/dist/leaflet.css";

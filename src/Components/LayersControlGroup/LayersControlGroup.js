@@ -7,6 +7,8 @@ import { UserContext } from "../../contexts/UserContext/UserContext";
 import { getMilesFromMeters } from "../../helpers/Util";
 
 const LayersControlGroup = (props) => {
+  const { pointsOfInterest } = props;
+
   const {
     position,
     layer1POIs,
@@ -35,9 +37,6 @@ const LayersControlGroup = (props) => {
     { name: "Sites within 50 mi", checked: false },
   ]);
 
-  const { pointsOfInterest } = props;
-  const map = useMap();
-
   const filterByDistance = (startingPos, endingPos) => {
     if (!endingPos) return;
 
@@ -61,7 +60,11 @@ const LayersControlGroup = (props) => {
     return pois;
   };
 
+  const map = useMap();
+
   useEffect(() => {
+    if (!position) return;
+
     const _layer1POIs = getLayerPOIs(1);
     const _layer2POIs = getLayerPOIs(5);
     const _layer3POIs = getLayerPOIs(10);

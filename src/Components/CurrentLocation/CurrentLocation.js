@@ -4,7 +4,7 @@ import CurrentLocationCenterButton from "../CurrentLocationCenterButton/CurrentL
 import { UserContext } from "../../contexts/UserContext/UserContext";
 
 const CurrentLocation = (props) => {
-  const { position, handleNewPosition, testMode } = useContext(UserContext);
+  const { position, setPosition, testMode } = useContext(UserContext);
   const map = useMap();
 
   useEffect(() => {
@@ -12,17 +12,17 @@ const CurrentLocation = (props) => {
       //toggle 2 positions here to test map functionality of re-rendering distance layers in test mode
       // const pos = [33.66578333, -78.94325];
       const pos = [33.68083333, -79.3675];
-      handleNewPosition(pos);
+      setPosition(pos);
       map.flyTo(pos, map.getZoom());
     } else {
       map.locate().on("locationfound", (e) => {
         const pos = [e.latlng.lat, e.latlng.lng];
-        handleNewPosition(pos);
+        setPosition(pos);
         map.flyTo(pos, map.getZoom());
       });
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [map, testMode]);
+  }, [testMode]);
 
   return position === null ? null : (
     <div>
