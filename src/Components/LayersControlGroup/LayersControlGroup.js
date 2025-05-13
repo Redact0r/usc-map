@@ -63,21 +63,20 @@ const LayersControlGroup = (props) => {
   const map = useMap();
 
   useEffect(() => {
-    if (!position) return;
-
-    const _layer1POIs = getLayerPOIs(1);
-    const _layer2POIs = getLayerPOIs(5);
-    const _layer3POIs = getLayerPOIs(10);
-    const _layer4POIs = getLayerPOIs(25);
-    const _layer5POIs = getLayerPOIs(50);
-    handleLayer1Change(_layer1POIs);
-    handleLayer2Change(_layer2POIs);
-    handleLayer3Change(_layer3POIs);
-    handleLayer4Change(_layer4POIs);
-    handleLayer5Change(_layer5POIs);
+  if (!position || !pointsOfInterest?.features) return;
+  const compute = (radius) =>
+    pointsOfInterest.features.filter(poi => {
+      const latLng = [poi.geometry.coordinates[1], poi.geometry.coordinates[0]];
+      return filterByDistance(position, latLng) <= radius;
+    });
+  handleLayer1Change(compute(1));
+  handleLayer2Change(compute(5));
+  handleLayer3Change(compute(10));
+  handleLayer4Change(compute(25));
+  handleLayer5Change(compute(50));
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [position]);
+  }, [position, pointsOfInterest]);
 
   map.on("overlayadd", (e) => {
     const newLayerTitle = e.name.trim();
